@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" xmlns:local11="clr-namespace:App1.Models"
+             x:Class="App1.Views.piechart">
+    <ContentPage.Content>
+        <StackLayout>
+            <chart:SfChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <chart:SfChart.BindingContext>
+                    <local11:ViewModel/>
+                </chart:SfChart.BindingContext>
+
+                <chart:SfChart.Legend>
+
+                    <chart:ChartLegend StrokeColor="Black" CornerRadius="2" BackgroundColor="Wheat" />
+                </chart:SfChart.Legend>
+
+                <chart:SfChart.Title>
+                    <chart:ChartTitle Text="Chart"/>
+                </chart:SfChart.Title>
+
+                <chart:SfChart.PrimaryAxis>
+                    <chart:CategoryAxis>
+                        <chart:CategoryAxis.Title>
+                            <chart:ChartAxisTitle Text="Name"/>
+                        </chart:CategoryAxis.Title>
+                    </chart:CategoryAxis>
+                </chart:SfChart.PrimaryAxis>
+
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="Height (in cm)"/>
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+
+                <chart:SfChart.Series>
+                    <chart:PieSeries EnableDataPointSelection="True" SelectedDataPointIndex="-1" SelectedDataPointColor="Red" ItemsSource="{Binding Data}"  Label="Heights" XBindingPath="Name" YBindingPath="Height" EnableTooltip="True">
+                        <chart:PieSeries.DataMarker>
+                            <chart:ChartDataMarker/>
+                        </chart:PieSeries.DataMarker>
+                    </chart:PieSeries>
+
+                </chart:SfChart.Series>
+                
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+                </chart:SfChart.ChartBehaviors>
+            </chart:SfChart>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

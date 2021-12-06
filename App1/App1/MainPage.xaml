@@ -4,57 +4,12 @@
              xmlns:local="clr-namespace:App1"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" xmlns:local1="clr-namespace:App1"
              x:Class="App1.MainPage">
-
-    <chart:SfChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
-        <chart:SfChart.BindingContext>
-            <local1:ViewModel/>
-        </chart:SfChart.BindingContext>
-
-        <chart:SfChart.Legend>
-            <chart:ChartLegend />
-        </chart:SfChart.Legend>
-
-        <chart:SfChart.Title>
-            <chart:ChartTitle Text="Chart"/>
-        </chart:SfChart.Title>
-
-        <chart:SfChart.PrimaryAxis>
-            <chart:CategoryAxis>
-                <chart:CategoryAxis.Title>
-                    <chart:ChartAxisTitle Text="Name"/>
-                </chart:CategoryAxis.Title>
-            </chart:CategoryAxis>
-        </chart:SfChart.PrimaryAxis>
-
-        <chart:SfChart.SecondaryAxis>
-            <chart:NumericalAxis>
-                <chart:NumericalAxis.Title>
-                    <chart:ChartAxisTitle Text="Height (in cm)"/>
-                </chart:NumericalAxis.Title>
-            </chart:NumericalAxis>
-        </chart:SfChart.SecondaryAxis>
-
-        <chart:SfChart.Series>
-            <chart:ColumnSeries ItemsSource="{Binding Data}"  Label="Heights" XBindingPath="Name" YBindingPath="Height" EnableTooltip="True">
-                <chart:ColumnSeries.DataMarker>
-                    <chart:ChartDataMarker/>
-                </chart:ColumnSeries.DataMarker>
-            </chart:ColumnSeries>
+    <StackLayout Orientation="Vertical">
+        <Button Text="Bar Chart" x:Name="barChart" Clicked="barChartonclicked"></Button>
+        <Button Text="Line Chart" x:Name="lineChart" Clicked="lineChartonclicked"></Button>
+        <Button Text="Pie Chart" x:Name="pieChart" Clicked="pieChartonclicked"></Button>
+    </StackLayout>
+    
       
-            <chart:LineSeries x:Name="lineSeries1" TooltipTemplate="{StaticResource toolTipTemplate1}"  StrokeWidth="3" ItemsSource="{Binding Data}" Color="#00BDAE" XBindingPath="Value" YBindingPath="Size" LegendIcon="Circle" Label="France" EnableTooltip="True">
-                <chart:LineSeries.DataMarker>
-                    <chart:ChartDataMarker  x:Name="marker" ShowMarker="True" MarkerColor="#00BDAE" MarkerBorderColor="White" ShowLabel="False" MarkerHeight="10" MarkerWidth="10" MarkerBorderWidth="2" />
-                </chart:LineSeries.DataMarker>
-            </chart:LineSeries>
-      
-            <chart:LineSeries x:Name="lineSeries2" TooltipTemplate="{StaticResource toolTipTemplate1}"  StrokeWidth="3" ItemsSource="{Binding Data}" Color="#404041" XBindingPath="Value" YBindingPath="Size" Label="Germany" LegendIcon="Circle" EnableTooltip="True">
-                <chart:LineSeries.DataMarker>
-                    <chart:ChartDataMarker ShowMarker="True" MarkerColor="#404041" ShowLabel="False" MarkerBorderWidth="2" MarkerBorderColor="White" MarkerHeight="10" MarkerWidth="10" />
-                </chart:LineSeries.DataMarker>
-            </chart:LineSeries>
-         </chart:SfChart.Series>
-    </chart:SfChart>
-  
     
 </ContentPage>

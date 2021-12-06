@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,34 +14,26 @@ namespace App1
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
-
-    }
-    public class ViewModel
-    {
-        public List<Person> Data { get; set; }
-        public ViewModel()
+     
+        private async void barChartonclicked(object sender, EventArgs e)
         {
-            Data = new List<Person>()
-            {
-                new Person("David", 180),
-                new Person("Micheal", 170),
-                new Person("Steve", 160),
-                new Person("Joel", 182)
-            };
+            await Navigation.PushAsync(new NavigationPage(new barchart()));
         }
-    }
 
-    public class Person
-    {
-        public string Name { get; set; }
-
-        public double Height { get; set; }
-
-        public Person(string name, double height)
+        private async void lineChartonclicked(object sender, EventArgs e)
         {
-            this.Name = name;
-            this.Height = height;
+            await Navigation.PushAsync(new NavigationPage(new linechart()));
+
+        }
+
+        private async void pieChartonclicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new piechart()));
         }
     }
+    
+
+    
 }
